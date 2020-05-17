@@ -1,0 +1,204 @@
+{
+  "provider": {
+    "name": "provider"
+  },
+  "consumer": {
+    "name": "client_consumer"
+  },
+  "interactions": [
+    {
+      "description": "a request to POST a client",
+      "request": {
+        "method": "POST",
+        "path": "/challenge/clients",
+        "headers": {
+          "Content-Type": "application/json; charset=UTF-8"
+        },
+        "body": {
+          "fullName": "Alex_First",
+          "userName": "user_Alex"
+        },
+        "matchingRules": {
+          "body": {
+            "$.fullName": {
+              "matchers": [
+                {
+                  "match": "type"
+                }
+              ],
+              "combine": "AND"
+            },
+            "$.userName": {
+              "matchers": [
+                {
+                  "match": "type"
+                }
+              ],
+              "combine": "AND"
+            }
+          }
+        }
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "Content-Type": "application/json珡"
+        },
+        "body": "{\"resultCode\":\"Ok\"}",
+        "matchingRules": {
+          "header": {
+            "Content-Type": {
+              "matchers": [
+                {
+                  "match": "regex",
+                  "regex": "application/json.*"
+                }
+              ],
+              "combine": "AND"
+            }
+          },
+          "body": {
+            "$.resultCode": {
+              "matchers": [
+                {
+                  "match": "type"
+                }
+              ],
+              "combine": "AND"
+            }
+          }
+        }
+      },
+      "providerStates": [
+        {
+          "name": "Create a new Client"
+        }
+      ]
+    },
+    {
+      "description": " a request to GET a clients ",
+      "request": {
+        "method": "GET",
+        "path": "/challenge/clients"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "Content-Type": "application/json; charset=UTF-8"
+        },
+        "body": {
+          "clients": [
+            "user_Alex"
+          ],
+          "resultCode": "Ok"
+        }
+      },
+      "providerStates": [
+        {
+          "name": "Get a list of usernames from DB"
+        }
+      ]
+    },
+    {
+      "description": " a request to GET a clients ",
+      "request": {
+        "method": "GET",
+        "path": "/challenge/clients"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "Content-Type": "application/json; charset=UTF-8"
+        },
+        "body": {
+          "clients": [
+            "user_Alex"
+          ],
+          "resultCode": "Ok"
+        }
+      },
+      "providerStates": [
+        {
+          "name": "checking existing clients"
+        }
+      ]
+    },
+    {
+      "description": "a request to POST a client",
+      "request": {
+        "method": "POST",
+        "path": "/challenge/clients",
+        "headers": {
+          "Content-Type": "application/json; charset=UTF-8"
+        },
+        "body": {
+          "fullName": "Alex_First",
+          "userName": "user_Alex"
+        },
+        "matchingRules": {
+          "body": {
+            "$.fullName": {
+              "matchers": [
+                {
+                  "match": "type"
+                }
+              ],
+              "combine": "AND"
+            },
+            "$.userName": {
+              "matchers": [
+                {
+                  "match": "type"
+                }
+              ],
+              "combine": "AND"
+            }
+          }
+        }
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "Content-Type": "application/json닋સ䬃"
+        },
+        "body": "{\"resultCode\":\"Ok\"}",
+        "matchingRules": {
+          "header": {
+            "Content-Type": {
+              "matchers": [
+                {
+                  "match": "regex",
+                  "regex": "application/json.*"
+                }
+              ],
+              "combine": "AND"
+            }
+          },
+          "body": {
+            "$.resultCode": {
+              "matchers": [
+                {
+                  "match": "type"
+                }
+              ],
+              "combine": "AND"
+            }
+          }
+        }
+      },
+      "providerStates": [
+        {
+          "name": "provider accepts a new client"
+        }
+      ]
+    }
+  ],
+  "metadata": {
+    "pactSpecification": {
+      "version": "3.0.0"
+    },
+    "pact-jvm": {
+      "version": "4.0.10"
+    }
+  }
+}

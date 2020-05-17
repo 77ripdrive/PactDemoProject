@@ -1,0 +1,24 @@
+plugins {
+    id "au.com.dius.pact"
+}
+dependencies {
+    implementation 'au.com.dius:pact-jvm-provider-gradle:4.0.10'
+    testImplementation 'org.hamcrest:hamcrest:2.2'
+    testImplementation 'au.com.dius:pact-jvm-consumer-java8:4.0.10'
+    testImplementation 'au.com.dius:pact-jvm-consumer-junit5:4.0.10'
+
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.6.2'
+}
+
+pact {
+    publish {
+        pactDirectory = "$rootDir/Pacts"
+        pactBrokerUrl = 'http://localhost:8181/'
+        pactBrokerUsername = 'name'
+        pactBrokerPassword = 'pass'
+
+    }
+}
+
+
+
