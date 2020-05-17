@@ -1,0 +1,45 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("au.com.dius:pact-jvm-provider-gradle:4.0.10")
+    }
+}
+
+subprojects {
+    group 'org.example'
+    version '1.0-SNAPSHOT'
+
+    apply plugin: 'java'
+    apply plugin: 'idea'
+    apply plugin: 'eclipse'
+
+    repositories {
+        mavenCentral()
+        jcenter()
+    }
+}
+
+project(':consumer') {
+    version '0.1.0'
+
+    jar {
+        archiveBaseName = 'consumer'
+        archiveVersion = '0.1.0'
+    }
+
+    test {
+        useJUnitPlatform()
+        systemProperties['pact.rootDir'] = "$rootDir/Pacts"
+    }
+}
+
+project(':provider') {
+
+    jar {
+        archiveBaseName = 'provider'
+        archiveVersion = '0.1.0'
+    }
+}
+
