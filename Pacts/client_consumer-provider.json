@@ -42,9 +42,11 @@
       "response": {
         "status": 200,
         "headers": {
-          "Content-Type": "application/json珡"
+          "Content-Type": "application/json"
         },
-        "body": "{\"resultCode\":\"Ok\"}",
+        "body": {
+          "resultCode": "Ok"
+        },
         "matchingRules": {
           "header": {
             "Content-Type": {

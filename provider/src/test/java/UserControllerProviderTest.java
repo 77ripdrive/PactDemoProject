@@ -10,7 +10,7 @@ import org.junit.jupiter.api.TestTemplate;
 import org.junit.jupiter.api.extension.ExtendWith;
 
 @Provider("provider")
-@PactFolder("$rootDir/Pacts/client_consumer-provider.json")
+@PactFolder("$rootDir/Pacts")
 @Disabled
 public class UserControllerProviderTest {
     private static final String FULL_NAME = "Alex_First";
@@ -29,7 +29,7 @@ public class UserControllerProviderTest {
 
     @State("Create a new Client")
     public void toCreateUserState() {
-//        Client client = new Client(FULL_NAME,USER_NAME);
+        var client = new Client(FULL_NAME, USER_NAME);
 
         // nothing to do, real service is used
 

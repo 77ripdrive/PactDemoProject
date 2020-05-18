@@ -7,19 +7,6 @@ dependencies {
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.6.2'
 }
 
-pact {
-    serviceProviders {
-        provider1 {
-            protocol = 'http'
-            host = 'localhost'
-            port = 8080
-            path = '/'
-            hasPactWith('consumer1') {
-                pactSource = file('$rootDir/Pacts/client_consumer-provider.json')
-            }
-        }
-    }
-}
 test {
     useJUnitPlatform()
 }

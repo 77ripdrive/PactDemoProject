@@ -11,3 +11,5 @@ Each module should be an independent build and can be built by calling `./gradle
 All modules are listed in [build-all.sh](build-all.sh) to run in the CI pipeline.
 
 #### Run 'docker-compose up' before 'publish' task if you'll use PactBroker with local Docker and you'll have a Broker running at http://localhost:8181/
+
+#### Jar file  from ->[hello-world-challenge](https://github.com/letsrokk/hello-world-challenge)
